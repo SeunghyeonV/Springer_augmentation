@@ -10,7 +10,8 @@ def data_sampling():
     augmentation_list = os.listdir(
     "C:/Users/seacl/Desktop/CIFAR100_reconstruction/cifar100_output/randaug_M1/model_accuracy")
     
-    testset_address = "C:/Users/seacl/Desktop/CIFAR100_reconstruction/cifar100/test"
+    # use test_copy to prevent the damage on original dataset
+    testset_address = "C:/Users/seacl/Desktop/CIFAR100_reconstruction/cifar100/test_copy"
     test_directory = []
     file_list = [[] for _ in range(100)]
     selected_files = []    
@@ -23,13 +24,13 @@ def data_sampling():
     # print(test_directory)
 
     # returns labels in list
-    name_address = "C:/Users/seacl/Desktop/CIFAR100_reconstruction/cifar100/test"
+    name_address = "C:/Users/seacl/Desktop/CIFAR100_reconstruction/cifar100/test_copy"
     name_list = os.listdir(name_address)
     # print(name_list)
 
     # samples 30 file names from index_list 
     index_list = os.listdir("C:/Users/seacl/Desktop/CIFAR100_reconstruction/cifar100/test/apple")
-    sample_idx = random.sample(index_list, 30)
+    sample_idx = random.sample(index_list, 50)
     # print(sample_idx)
     
     # returns full file path of sampled images
@@ -40,7 +41,7 @@ def data_sampling():
     # print(l)
                    
     # creates 100 label destination folders in list
-    destination_dir = "C:/Users/seacl/Desktop/CIFAR100_reconstruction/cifar100/sampled_test"
+    destination_dir = "C:/Users/seacl/Desktop/CIFAR100_reconstruction/cifar100/test_50"
     dest_dir = []
     for i in range(len(name_list)):
         if not os.path.exists(os.path.join(destination_dir, name_list[i])):
@@ -50,7 +51,11 @@ def data_sampling():
     # copy sampled files to destination directories
     for i in range(len(test_directory)):
         for j in range(len(l[i])):
-            shutil.copy2(l[i][j], dest_dir[i])
+            # if copy2: copy files and paste it
+            # shutil.copy2(l[i][j], dest_dir[i])
+            
+            # if move: move files from original directory to destination
+            shutil.move(l[i][j], dest_dir[i])
 
 
 def main():
