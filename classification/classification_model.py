@@ -217,6 +217,5 @@ def main():
     print(total_test_acc, file=open(total_test_dir, "a"))
     print(label_test_acc, file=open(label_test_acc_dir, "a"))
 
-
 if __name__ == '__main__':
     main()
