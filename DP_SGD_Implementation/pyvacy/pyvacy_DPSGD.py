@@ -49,4 +49,3 @@ DPAdam = make_optimizer_class(Adam)
 DPAdagrad = make_optimizer_class(Adagrad)
 DPSGD = make_optimizer_class(SGD)
 DPRMSprop = make_optimizer_class(RMSprop)
-
