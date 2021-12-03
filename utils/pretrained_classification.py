@@ -155,5 +155,6 @@ def main():
     savefile = "C:/Users/seacl/Desktop/CIFAR100_reconstruction/accuracy_table.csv"  # filename
     df.to_csv(savefile, encoding="utf_8_sig")  # save file
 
+    
 if __name__ == '__main__':
     main()
