@@ -26,4 +26,3 @@ savefile = "C:/Users/seacl/Desktop/test.csv" # filename
 df.to_csv(savefile, encoding="utf_8_sig") # save file
 
 del df # release memory
-
