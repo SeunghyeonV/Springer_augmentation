@@ -123,7 +123,9 @@ def main():
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=train_batch, shuffle=True)
 
     testset_list = ["E:/research/dataset/Image_folder/cifar100/randaugment_images/randaug_M2/model_accuracy/equalize",
-                    "E:/research/dataset/Image_folder/cifar100/randaugment_images/randaug_M2/attack_accuracy/equalize"]
+                    "E:/research/dataset/Image_folder/cifar100/randaugment_images/randaug_M2/attack_accuracy/equalize",
+                    "E:/research/dataset/Image_folder/cifar100/randaugment_images/randaug_M2/model_accuracy/posterize",
+                    "E:/research/dataset/Image_folder/cifar100/randaugment_images/randaug_M2/attack_accuracy/posterize"]
 
     # save the whole accuracy of each dataset to acc_savelist as an element
     acc_savelist = []
@@ -150,11 +152,16 @@ def main():
     df = pd.DataFrame(acc_savelist)
     df = df.T  # transpose it
     df.insert(loc=0, column="Label", value=classes)  # add label list as label to 0th column
-    df.columns = ['Label', 'MA', 'AA']  # define top rows
+
+    df_label_list = ['Label']
+    for i in range(len(testset_list)//2):
+        df_label_list.append('MA')
+        df_label_list.append('AA')
+
+    df.columns = df_label_list  # define top rows
 
     savefile = "C:/Users/seacl/Desktop/CIFAR100_reconstruction/accuracy_table.csv"  # filename
     df.to_csv(savefile, encoding="utf_8_sig")  # save file
 
-    
 if __name__ == '__main__':
     main()
