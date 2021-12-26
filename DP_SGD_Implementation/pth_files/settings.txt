@@ -1,0 +1,13 @@
+lr = 0.2
+noise_multiplier = 0.1, 0.2, 0.3
+l2_norm_clip = 1.0
+epochs = 200
+train_batch, test_batch = 100
+
+transform = transforms.Compose([transforms.ToTensor()])
+
+RESULT:
+noise/train/test
+0.1/56.03/49.24
+0.2/49.07/40.04
+0.3/35.43/32.04
