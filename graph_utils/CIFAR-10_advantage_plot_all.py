@@ -15,7 +15,8 @@ df_MA = pd.DataFrame({'DP_MA_values': DP_MA_values, 'Aug_MA_values': Aug_MA_valu
                     'difference_MA' : CIFAR10_MA_advantage})
 
 fig, ax = plt.subplots(1, figsize = (14, 8))
-# plt.set_prop_cycle(color=color_list)
+ax.patch.set_edgecolor('black')  
+ax.patch.set_linewidth('1')  
 
 plt.bar(df_MA.index, df_MA['Aug_MA_values'], width = 0.6, color=color_list)
 plt.bar(df_MA.index, df_MA['DP_MA_values'], color = '#1f77b4', width = 0.6)
@@ -54,9 +55,8 @@ plt.xticks(df_MA.index , labels = xticks_labels, fontsize=13)
 # title and legend
 legend_label = ['Advantages', 'Aug_MA_values (colors)', 'DP_MA_values']
 plt.legend(legend_label, ncol = 3, bbox_to_anchor=([0.75, 1.06, 0, 0]), frameon = True, fontsize=10)
-
 plt.title('CIFAR-10 Best Augmentation Advantages Per Label (Model Accuracy) \n', loc='center', fontdict = {'fontsize' : 20})
-plt.savefig("C:/Users/seacl/Desktop/MA_advantages.png", dpi=1200)
+# plt.savefig("C:/Users/seacl/Desktop/MA_advantages.png", dpi=1200, bbox_inches = 'tight')
 
 
 
@@ -74,6 +74,8 @@ CIFAR10_AA_advantage = [11.67, 40.26, -1.2, 10.8, -3.26, 0.27, 11.27, 24.2, 18.1
 df_AA = pd.DataFrame({'DP_AA_values': DP_AA_values, 'Aug_AA_values': Aug_AA_values,
                     'difference_AA' : CIFAR10_AA_advantage})
 fig, ax = plt.subplots(1, figsize = (14, 8))
+ax.patch.set_edgecolor('black')  
+ax.patch.set_linewidth('1')  
 
 plt.bar(df_AA.index, df_AA['Aug_AA_values'], color = color_list, width = 0.7)
 plt.bar(df_AA.index, df_AA['DP_AA_values'], color = '#1f77b4', width = 0.7)
@@ -112,7 +114,9 @@ plt.xticks(df_AA.index , labels = xticks_labels, fontsize=13)
 legend_label = ['Advantages', 'Aug_AA_values (colors)', 'DP_AA_values']
 plt.legend(legend_label, ncol = 3, bbox_to_anchor=([0.75, 1.06, 0, 0]), frameon = True, fontsize=10)
 plt.title('CIFAR-10 Best Augmentation Advantages Per Label (Attack Accuracy) \n', loc='center', fontdict = {'fontsize' : 20})
-plt.savefig("C:/Users/seacl/Desktop/AA_advantages.png", dpi=1200)
+# plt.savefig("C:/Users/seacl/Desktop/AA_advantages.png", dpi=1200, bbox_inches = 'tight')
 
 
 plt.show()
+
+total_advantage_score = [27.74, 57.19, 21.17, 15.56, 12.37, 22.48, 18.76, 35.68, 20.14, 28.19]
