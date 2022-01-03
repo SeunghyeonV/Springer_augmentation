@@ -63,7 +63,7 @@ autocontrast_MA_my_coord = autocontrast_MA_min+3
 
 translateY_MA_min = min(translateY_MA)
 translateY_MA_min_index = x_axis[translateY_MA.index(translateY_MA_min)]
-translateY_MA_mx_coord = 7.6
+translateY_MA_mx_coord = 7.4
 translateY_MA_my_coord = translateY_MA_min-6
 
 
@@ -112,11 +112,11 @@ plt.scatter(Magnitude, translateX_MA, c='orchid')
 
 plt.plot(Magnitude, translateY_MA, label="translateY", color='pink')
 plt.scatter(Magnitude, translateY_MA, c='pink')
-plt.annotate("[T]{}%".format(translateY_MA_min), xy=(translateY_MA_min_index, translateY_MA_min), xytext=(translateY_MA_mx_coord,translateY_MA_my_coord))
+plt.annotate("[TY]{}%".format(translateY_MA_min), xy=(translateY_MA_min_index, translateY_MA_min), xytext=(translateY_MA_mx_coord,translateY_MA_my_coord))
 
 plt.legend(bbox_to_anchor=(1.0, 1.0))
 plt.tight_layout()
-plt.savefig("C:/Users/seacl/Desktop/MA_linear.png", dpi=1200)
+plt.savefig("C:/Users/seacl/Desktop/Fig7.png", dpi=300)
 
 plt.show()
 
@@ -144,7 +144,7 @@ autocontrast_AA_my_coord = autocontrast_AA_min+6.5
 
 translateY_AA_min = min(translateY_AA)
 translateY_AA_min_index = x_axis[translateY_AA.index(translateY_AA_min)]
-translateY_AA_mx_coord = 7.6
+translateY_AA_mx_coord = 7.4
 translateY_AA_my_coord = translateY_AA_min-5
 
 plt.plot(Magnitude, original_AA, label="original", color='red')
@@ -194,10 +194,10 @@ plt.scatter(Magnitude, translateX_AA, c='orchid')
 
 plt.plot(Magnitude, translateY_AA, label="translateY", color='pink')
 plt.scatter(Magnitude, translateY_AA, c='pink')
-plt.annotate("[T]{}%".format(translateY_AA_min), xy=(translateY_AA_min_index, translateY_AA_min), xytext=(translateY_AA_mx_coord,translateY_AA_my_coord))
+plt.annotate("[TY]{}%".format(translateY_AA_min), xy=(translateY_AA_min_index, translateY_AA_min), xytext=(translateY_AA_mx_coord,translateY_AA_my_coord))
 
 plt.legend(bbox_to_anchor=(1.0, 1.0))
 plt.tight_layout()
-plt.savefig("C:/Users/seacl/Desktop/AA_linear.png", dpi=1200)
+plt.savefig("C:/Users/seacl/Desktop/Fig8.png", dpi=300)
 
 plt.show()
