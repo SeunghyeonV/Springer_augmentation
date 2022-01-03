@@ -56,7 +56,7 @@ plt.xticks(df_MA.index , labels = xticks_labels, fontsize=13)
 legend_label = ['Advantages', 'Aug_MA_values (colors)', 'DP_MA_values']
 plt.legend(legend_label, ncol = 3, bbox_to_anchor=([0.75, 1.06, 0, 0]), frameon = True, fontsize=10)
 plt.title('CIFAR-10 Best Augmentation Advantages Per Label (Model Accuracy) \n', loc='center', fontdict = {'fontsize' : 20})
-# plt.savefig("C:/Users/seacl/Desktop/MA_advantages.png", dpi=1200, bbox_inches = 'tight')
+# plt.savefig("C:/Users/seacl/Desktop/MA_advantages.png", dpi=300, bbox_inches = 'tight')
 
 
 
@@ -114,7 +114,7 @@ plt.xticks(df_AA.index , labels = xticks_labels, fontsize=13)
 legend_label = ['Advantages', 'Aug_AA_values (colors)', 'DP_AA_values']
 plt.legend(legend_label, ncol = 3, bbox_to_anchor=([0.75, 1.06, 0, 0]), frameon = True, fontsize=10)
 plt.title('CIFAR-10 Best Augmentation Advantages Per Label (Attack Accuracy) \n', loc='center', fontdict = {'fontsize' : 20})
-# plt.savefig("C:/Users/seacl/Desktop/AA_advantages.png", dpi=1200, bbox_inches = 'tight')
+# plt.savefig("C:/Users/seacl/Desktop/AA_advantages.png", dpi=300, bbox_inches = 'tight')
 
 
 plt.show()
