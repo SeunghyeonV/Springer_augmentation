@@ -60,7 +60,7 @@ ax.text(6.79, 48, '-0.33', fontsize=12, c='k')
 ax.text(7.4, 74, 'Brightness (M9)', fontsize=12, c='k')
 ax.text(7.83, 68, '4.67', fontsize=12, c='k')
 
-ax.text(8.42, -64, 'Equalize (M8)', fontsize=12, c='k')
+ax.text(8.42, -64, 'Posterize (M7)', fontsize=12, c='k')
 ax.text(8.82, -59, '-3.0', fontsize=12, c='k')
 
 ax.text(1.4, -60, 'Higher MA: Better Utility', fontsize=12, c='k', size='xx-large', bbox=dict(facecolor='none', edgecolor='black', boxstyle='round,pad=0.5'))
@@ -78,7 +78,7 @@ plt.xticks(df_MA.index , labels = xticks_labels, fontsize=13)
 legend_label = ['Advantages', 'Aug_MA_values (colors)', 'DP_MA_values']
 plt.legend(legend_label, ncol = 3, bbox_to_anchor=([0.66, 1.06, 0, 0]), frameon = True, fontsize=10)
 plt.title('CIFAR-100 Best Augmentation Advantages Per Label (Model Accuracy) \n', loc='center', fontdict = {'fontsize' : 20})
-plt.savefig("C:/Users/seacl/Desktop/CIFAR100_MA_advantages.png", dpi=300, bbox_inches = 'tight')
+# plt.savefig("C:/Users/seacl/Desktop/CIFAR100_MA_advantages.png", dpi=300, bbox_inches = 'tight')
 
 
 
@@ -137,7 +137,7 @@ ax.text(6.75, 18, '+6.67', fontsize=12, c='k')
 ax.text(7.4, 10, 'Brightness (M9)', fontsize=12, c='k')
 ax.text(7.75, 7.5, '±0.0', fontsize=12, c='k')
 
-ax.text(8.42, 7, 'Equalize (M8)', fontsize=12, c='k')
+ax.text(8.42, 7, 'Posterize (M7)', fontsize=12, c='k')
 ax.text(8.8, 4.5, '±0.0', fontsize=12, c='k')
 
 ax.text(1.4, -35, 'Lower AA: Better Privacy', fontsize=12, c='k', size='xx-large', bbox=dict(facecolor='none', edgecolor='black', boxstyle='round,pad=0.5'))
@@ -154,7 +154,7 @@ plt.xticks(df_AA.index , labels = xticks_labels, fontsize=13)
 legend_label = ['Advantages', 'Aug_AA_values (colors)', 'DP_AA_values']
 plt.legend(legend_label, ncol = 3, bbox_to_anchor=([0.66, 1.06, 0, 0]), frameon = True, fontsize=10)
 plt.title('CIFAR-100 Best Augmentation Advantages Per Label (Attack Accuracy) \n', loc='center', fontdict = {'fontsize' : 20})
-plt.savefig("C:/Users/seacl/Desktop/CIFAR100_AA_advantages.png", dpi=300, bbox_inches = 'tight')
+# plt.savefig("C:/Users/seacl/Desktop/CIFAR100_AA_advantages.png", dpi=300, bbox_inches = 'tight')
 
 
 plt.show()
