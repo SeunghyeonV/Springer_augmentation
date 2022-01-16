@@ -21,6 +21,7 @@ advantage_scores =  np.array([[27.74, 57.19, 14.57, 8.69, -4.37, 17.14, -14.84, 
                     [13.34, 42.73, 6.11, 1.69, -4.03, 16.08, 6.49, 23.22, 9.14, 28.19]])
 
 
+
 advantage_scores_t = advantage_scores.T
 # print(advantage_scores_t)
 
@@ -49,13 +50,13 @@ for i in range(len(augmnetations)):
     for j in range(len(labels)):
         text = ax.text(j, i, advantage_scores_t[i, j],
                         ha="center", va="center", color="k", fontsize=16)
-        if advantage_scores_t[i, j] < 0:
-            text = ax.text(j, i, advantage_scores_t[i, j],
-                ha="center", va="center", color="w", fontsize=16)
+        # if advantage_scores_t[i, j] < 0:
+        #     text = ax.text(j, i, advantage_scores_t[i, j],
+        #         ha="center", va="center", color="w", fontsize=16)
         if advantage_scores_t[i, j] in best_advantage_scores:
             text = ax.text(j, i, advantage_scores_t[i, j],
                 ha="center", va="center", color="red", fontsize=16)
-            
+            best_advantage_scores.remove(advantage_scores_t[i, j])
             
 # Calculate (height_of_image / width_of_image)
 # im_ratio = im.shape[0]/im.shape[1]
@@ -63,7 +64,7 @@ for i in range(len(augmnetations)):
 ax.set_title("CIFAR-10 Advantage Scores", fontsize=28, y=1.02)
 fig.tight_layout()
 cbar = plt.colorbar(im, orientation='vertical', fraction=0.045)
-cbar.set_label('Advantage Score', size=20)
+cbar.set_label('Advantage Scores', size=20)
 
 # plt.savefig("C:/Users/seacl/Desktop/CIFAR10_Advantage_score_maxtrix.png", dpi=300, bbox_inches = 'tight')
 plt.show()
