@@ -6,8 +6,9 @@ from utils.randaugment import *
 import torch
 from PIL import Image
 
+csfont = {'fontname':'Times New Roman'}
 
-img = Image.open('C:/Users/seacl/Desktop/Thesis_research/reinforcement_augmentation/Imagenet/train/hen/n01514859_364.jpeg')
+img = Image.open('C:/Users/seacl/Desktop/imagenet/train/hen/n01514859_364.jpeg')
 img = img.resize((224,224))
 
 transform = transforms.Compose([CIFAR10Policy_equalize(magnitude=3), transforms.ToTensor()])
@@ -43,7 +44,7 @@ fig = plt.figure(figsize=(5, 8))
 for i in range(1, columns*rows+1):
     fig.add_subplot(rows, columns, i)
     plt.imshow(transforms_list[i-1](img).permute(1, 2, 0).cpu())
-    plt.title(labels[i-1])
+    plt.title(labels[i-1], **csfont)
     plt.axis('off')
-# plt.savefig("C:/Users/seacl/Desktop/figure_aug.png", dpi=200, bbox_inches = 'tight')
+# plt.savefig("C:/Users/seacl/Desktop/augmentations.png", dpi=150, bbox_inches = 'tight')
 plt.show()
