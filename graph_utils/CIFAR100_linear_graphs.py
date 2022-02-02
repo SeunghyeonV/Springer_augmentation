@@ -2,6 +2,13 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import matplotlib.font_manager as font_manager
+
+# all font
+csfont = {'fontname':'Times New Roman'}
+# legend font
+font = font_manager.FontProperties(family='Times New Roman',
+                                   style='normal', size=10)
 
 ## Draw linear graphs for each augmentation that shows accuracy change per magnitude
 
@@ -42,29 +49,30 @@ Magnitude = [1,3,5,7,9]
 plt.xticks(Magnitude, Magnitude)
 plt.ylim(0,80)
 
-plt.title("CIFAR-10 Model accuracy range")
-plt.xlabel("Magnitude")
-plt.ylabel("Accuracy")
+plt.title("CIFAR-100 Model accuracy range", **csfont, fontsize=14)
+plt.xlabel("Magnitude", **csfont)
+plt.ylabel("Accuracy", **csfont)
 x_axis = range(0, 15)
 # cmap = plt.get_cmap('tab20c') #automatically adjust color by applying color=cmap(i)
 
+# highest value and coordinates
 original_MA_max = max(original_MA)
 original_MA_max_index = x_axis[original_MA.index(original_MA_max)]
-original_MA_mx_coord = 7.6
+original_MA_mx_coord = 8
 original_MA_my_coord = original_MA_max+10
-plt.annotate("[O]{}%".format(original_MA_max), xy=(original_MA_max_index, original_MA_max), xytext=(original_MA_mx_coord,original_MA_my_coord))
+plt.annotate("[O]{}%".format(original_MA_max), xy=(original_MA_max_index, original_MA_max), xytext=(original_MA_mx_coord,original_MA_my_coord), **csfont)
 
-
+# highest value and coordinates
 autocontrast_MA_min = min(autocontrast_MA)
 autocontrast_MA_min_index = x_axis[autocontrast_MA.index(autocontrast_MA_min)]
-autocontrast_MA_mx_coord = 7.63
+autocontrast_MA_mx_coord = 8
 autocontrast_MA_my_coord = autocontrast_MA_min+3
 
-
+# highest value and coordinates
 posterize_MA_min = min(posterize_MA)
 posterize_MA_min_index = x_axis[posterize_MA.index(posterize_MA_min)]
-posterize_MA_mx_coord = 7.8
-posterize_MA_my_coord = posterize_MA_min-3.3
+posterize_MA_mx_coord = 8
+posterize_MA_my_coord = posterize_MA_min-3.5
 
 
 plt.plot(Magnitude, original_MA, label="original", color='red')
@@ -72,7 +80,7 @@ plt.scatter(Magnitude, original_MA, c=['red'])
 
 plt.plot(Magnitude, autocontrast_MA, label="autocontrast", color='navy')
 plt.scatter(Magnitude, autocontrast_MA, c='navy')
-plt.annotate("[A]{}%".format(autocontrast_MA_min), xy=(autocontrast_MA_min_index, autocontrast_MA_min), xytext=(autocontrast_MA_mx_coord,autocontrast_MA_my_coord))
+plt.annotate("[A]{}%".format(autocontrast_MA_min), xy=(autocontrast_MA_min_index, autocontrast_MA_min), xytext=(autocontrast_MA_mx_coord,autocontrast_MA_my_coord), **csfont)
 
 plt.plot(Magnitude, brightness_MA, label="brightness", color='#ffed6f')
 plt.scatter(Magnitude, brightness_MA, c='#ffed6f')
@@ -112,11 +120,11 @@ plt.scatter(Magnitude, translateX_MA, c='orchid')
 
 plt.plot(Magnitude, translateY_MA, label="translateY", color='pink')
 plt.scatter(Magnitude, translateY_MA, c='pink')
-plt.annotate("[P]{}%".format(posterize_MA_min), xy=(posterize_MA_min_index, posterize_MA_min), xytext=(posterize_MA_mx_coord,posterize_MA_my_coord))
+plt.annotate("[P]{}%".format(posterize_MA_min), xy=(posterize_MA_min_index, posterize_MA_min), xytext=(posterize_MA_mx_coord,posterize_MA_my_coord), **csfont)
 
-plt.legend(bbox_to_anchor=(1.0, 1.0))
+plt.legend(bbox_to_anchor=(1.0, 1.0), prop=font)
 plt.tight_layout()
-plt.savefig("C:/Users/seacl/Desktop/CIFAR100_MA_linear.png", dpi=1200)
+# plt.savefig("C:/Users/seacl/Desktop/CIFAR100_linear_MA.png", dpi=200)
 
 plt.show()
 
@@ -125,36 +133,38 @@ Magnitude = [1,3,5,7,9]
 plt.xticks(Magnitude, Magnitude)
 plt.ylim(0,50)
 
-plt.title("CIFAR-10 Attack accuracy range")
-plt.xlabel("Magnitude")
-plt.ylabel("Accuracy")
+plt.title("CIFAR-100 Attack accuracy range", **csfont, fontsize=14)
+plt.xlabel("Magnitude", **csfont)
+plt.ylabel("Accuracy", **csfont)
 x_axis = range(0, 15)
 # cmap = plt.get_cmap('tab20c') #automatically adjust color by applying color=cmap(i)
 
+# highest value and coordinates
 original_AA_max = max(original_AA)
 original_AA_max_index = x_axis[original_AA.index(original_AA_max)]
-original_AA_mx_coord = 7.6
+original_AA_mx_coord = 7.9
 original_AA_my_coord = original_AA_max+2
 
-
+# highest value and coordinates
 autocontrast_AA_max = max(autocontrast_AA)
 autocontrast_AA_max_index = x_axis[autocontrast_AA.index(autocontrast_AA_max)]
-autocontrast_AA_mx_coord = 7.6
+autocontrast_AA_mx_coord = 7.9
 autocontrast_AA_my_coord = autocontrast_AA_max+2
 
+# highest value and coordinates
 posterize_AA_min = min(posterize_AA)
 posterize_AA_min_index = x_axis[posterize_AA.index(posterize_AA_min)]
-posterize_AA_mx_coord = 7.7
-posterize_AA_my_coord = posterize_AA_min-2
+posterize_AA_mx_coord = 8.1
+posterize_AA_my_coord = posterize_AA_min-2.2
 
 plt.plot(Magnitude, original_AA, label="original", color='red')
 plt.scatter(Magnitude, original_AA, c=['red'])
-plt.annotate("[O]{}%".format(original_AA_max), xy=(original_AA_max_index, original_AA_max), xytext=(original_AA_mx_coord,original_AA_my_coord))
+plt.annotate("[O]{}%".format(original_AA_max), xy=(original_AA_max_index, original_AA_max), xytext=(original_AA_mx_coord,original_AA_my_coord), **csfont)
 
 
 plt.plot(Magnitude, autocontrast_AA, label="autocontrast", color='navy') 
 plt.scatter(Magnitude, autocontrast_AA, c='navy')
-plt.annotate("[A]{}%".format(autocontrast_AA_max), xy=(autocontrast_AA_max_index, autocontrast_AA_max), xytext=(autocontrast_AA_mx_coord,autocontrast_AA_my_coord))
+plt.annotate("[A]{}%".format(autocontrast_AA_max), xy=(autocontrast_AA_max_index, autocontrast_AA_max), xytext=(autocontrast_AA_mx_coord,autocontrast_AA_my_coord), **csfont)
 
 plt.plot(Magnitude, brightness_AA, label="brightness", color='#ffed6f')
 plt.scatter(Magnitude, brightness_AA, c='#ffed6f')
@@ -194,10 +204,10 @@ plt.scatter(Magnitude, translateX_AA, c='orchid')
 
 plt.plot(Magnitude, translateY_AA, label="translateY", color='pink')
 plt.scatter(Magnitude, translateY_AA, c='pink')
-plt.annotate("[P]{}%".format(posterize_AA_min), xy=(posterize_AA_min_index, posterize_AA_min), xytext=(posterize_AA_mx_coord,posterize_AA_my_coord))
+plt.annotate("[P]{}%".format(posterize_AA_min), xy=(posterize_AA_min_index, posterize_AA_min), xytext=(posterize_AA_mx_coord,posterize_AA_my_coord), **csfont)
 
-plt.legend(bbox_to_anchor=(1.0, 1.0))
+plt.legend(bbox_to_anchor=(1.0, 1.0), prop=font)
 plt.tight_layout()
-plt.savefig("C:/Users/seacl/Desktop/CIFAR100_AA_linear.png", dpi=1200)
+# plt.savefig("C:/Users/seacl/Desktop/CIFAR100_linear_AA.png", dpi=200)
 
 plt.show()
