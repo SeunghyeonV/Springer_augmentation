@@ -1,11 +1,18 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as font_manager
+
+# all font
+csfont = {'fontname':'Times New Roman'}
+# legend font
+font = font_manager.FontProperties(family='Times New Roman',
+                                   style='normal', size=14)
 
 # # Colors for bar graphs
 color_list = ['#31a354', '#31a354', '#e377c2', 'sandybrown', '#ffed6f', '#9edae5', '#f7b6d2', 'sandybrown', '#74c476', '#a1d99b']
+labels = ['Airplane', 'Automobile', 'Bird', 'cat', 'Deer', 'Dog', 'Frog', 'Horse', 'Ship', 'Truck']
 
 #model accuracy
-labels = ['Airplane', 'Automobile', 'Bird', 'cat', 'Deer', 'Dog', 'Frog', 'Horse', 'Ship', 'Truck']
 Aug_MA_values = [69.73, 85, 42, 43.27, 31.73, 42.6, 69.4, 57.73, 43.4, 64.73]
 DP_MA_values = [-41.33, -63.8, -32.63, -38.51, -36.17, -46.86, -69.91, -46.25, -47.72, -81.94]
 
@@ -30,17 +37,17 @@ ax.spines['right'].set_visible(False)
 ax.spines['left'].set_visible(False)
 ax.spines['top'].set_visible(False)
 ax.spines['bottom'].set_visible(False)
-ax.text(-0.28, 72, '+28.4', fontsize=12, c='k')
-ax.text(0.74, 87, '+21.2', fontsize=12, c='k')
-ax.text(1.74, 44, '+9.37', fontsize=12, c='k')
-ax.text(2.73, 45, '+4.76', fontsize=12, c='k')
-ax.text(3.77, -42, '-4.44', fontsize=12, c='k')
-ax.text(4.78, -52, '-4.26', fontsize=12, c='k')
-ax.text(5.78, -75, '-0.51', fontsize=12, c='k')
-ax.text(6.67, 60, '+11.48', fontsize=12, c='k')
-ax.text(7.78, -54, '-4.32', fontsize=12, c='k')
-ax.text(8.72, -88, '-17.21', fontsize=12, c='k')
-ax.text(1.9, -70, 'Higher MA: Better Utility', fontsize=12, c='k', size='xx-large', bbox=dict(facecolor='none', edgecolor='black', boxstyle='round,pad=0.5'))
+ax.text(-0.2, 72, '+28.4', fontsize=12, c='k', **csfont)
+ax.text(0.8, 87, '+21.2', fontsize=12, c='k', **csfont)
+ax.text(1.8, 44, '+9.37', fontsize=12, c='k', **csfont)
+ax.text(2.8, 45, '+4.76', fontsize=12, c='k', **csfont)
+ax.text(3.82, -42, '-4.44', fontsize=12, c='k', **csfont)
+ax.text(4.82, -52, '-4.26', fontsize=12, c='k', **csfont)
+ax.text(5.82, -75, '-0.51', fontsize=12, c='k', **csfont)
+ax.text(6.75, 60, '+11.48', fontsize=12, c='k', **csfont)
+ax.text(7.82, -54, '-4.32', fontsize=12, c='k', **csfont)
+ax.text(8.78, -88, '-17.21', fontsize=12, c='k', **csfont)
+ax.text(1.9, -70, 'Higher MA: Better Utility', fontsize=12, c='k', size='xx-large', bbox=dict(facecolor='none', edgecolor='black', boxstyle='round,pad=0.5'), **csfont)
 
 
 #grid
@@ -49,14 +56,13 @@ ax.set_axisbelow(False)
 
 # x ticks
 xticks_labels = labels
-plt.xticks(df_MA.index , labels = xticks_labels, fontsize=13)
+plt.xticks(df_MA.index , labels = xticks_labels, fontsize=16, **csfont)
 
 # title and legend
-legend_label = ['Advantages', 'Aug_MA_values', 'DP_MA_values']
-plt.legend(legend_label, ncol = 3, bbox_to_anchor=([0.64, 1.06, 0, 0]), frameon = True, fontsize=10)
-plt.title('CIFAR-10 Posterize (M9) Advantages Per Label (Model Accuracy) \n', loc='center', fontdict = {'fontsize' : 20})
-# plt.savefig("C:/Users/seacl/Desktop/Posterize_MA_advantages.png", dpi=300, bbox_inches = 'tight')
-
+legend_label = ['Posterize Advantage Scores', 'DP-SGD Advantage Scores']
+plt.legend(legend_label, ncol = 3, bbox_to_anchor=([0.78, 1.08, 0, 0]), frameon = True, fontsize=14, prop=font)
+plt.title('CIFAR-10 Posterize(M9) Advantages Per Label (Model Accuracy) \n', y=1.01, loc='center', fontdict = {'fontsize' : 24}, **csfont)
+plt.savefig("C:/Users/seacl/Desktop/Posterize_MA_advantages.png", dpi=200, bbox_inches = 'tight')
 
 
 #############################################################################
@@ -87,17 +93,17 @@ ax.spines['right'].set_visible(False)
 ax.spines['left'].set_visible(False)
 ax.spines['top'].set_visible(False)
 ax.spines['bottom'].set_visible(False)
-ax.text(-0.23, -40, '-6.53', fontsize=12, c='k')
-ax.text(0.67, 29, '+29.73', fontsize=12, c='k')
-ax.text(1.8, 24, '+6.0', fontsize=12, c='k')
-ax.text(2.75, 25, '+10.8', fontsize=12, c='k')
-ax.text(3.77, -39, '-1.93', fontsize=12, c='k')
-ax.text(4.66, 23, '+21.73', fontsize=12, c='k')
-ax.text(5.78, -74, '-9.79', fontsize=12, c='k')
-ax.text(6.74, 22, '+24.2', fontsize=12, c='k')
-ax.text(7.67, 28, '+15.46', fontsize=12, c='k')
-ax.text(8.7, 46, '+34.53', fontsize=12, c='k')
-ax.text(1.9, -60, 'Lower AA: Better Privacy', fontsize=12, c='k', size='xx-large', bbox=dict(facecolor='none', edgecolor='black', boxstyle='round,pad=0.5'))
+ax.text(-0.18, -40, '-6.53', fontsize=12, c='k', **csfont)
+ax.text(0.75, 29, '+29.73', fontsize=12, c='k', **csfont)
+ax.text(1.84, 24, '+6.0', fontsize=12, c='k', **csfont)
+ax.text(2.8, 25, '+10.8', fontsize=12, c='k', **csfont)
+ax.text(3.82, -39, '-1.93', fontsize=12, c='k', **csfont)
+ax.text(4.75, 23, '+21.73', fontsize=12, c='k', **csfont)
+ax.text(5.82, -74, '-9.79', fontsize=12, c='k', **csfont)
+ax.text(6.8, 22, '+24.2', fontsize=12, c='k', **csfont)
+ax.text(7.75, 28, '+15.46', fontsize=12, c='k', **csfont)
+ax.text(8.75, 46, '+34.53', fontsize=12, c='k', **csfont)
+ax.text(1.9, -60, 'Lower AA: Better Privacy', fontsize=12, c='k', size='xx-large', bbox=dict(facecolor='none', edgecolor='black', boxstyle='round,pad=0.5'), **csfont)
 
 #grid
 ax.set_axisbelow(False)
@@ -105,13 +111,12 @@ ax.set_axisbelow(False)
 
 # x ticks
 xticks_labels = labels
-plt.xticks(df_AA.index , labels = xticks_labels, fontsize=13)
+plt.xticks(df_AA.index , labels = xticks_labels, fontsize=16, **csfont)
 
 # title and legend
-legend_label = ['Advantages', 'Aug_AA_values (colors)', 'DP_AA_values']
-plt.legend(legend_label, ncol = 3, bbox_to_anchor=([0.64, 1.06, 0, 0]), frameon = True, fontsize=10)
-plt.title('CIFAR-10 Posterize (M9) Advantages Per Label (Attack Accuracy) \n', loc='center', fontdict = {'fontsize' : 20})
-# plt.savefig("C:/Users/seacl/Desktop/Posterize_AA_advantages.png", dpi=300, bbox_inches = 'tight')
+legend_label = ['Posterize Advantage Scores', 'DP-SGD Advantage Scores']
+plt.legend(legend_label, ncol = 3, bbox_to_anchor=([0.78, 1.08, 0, 0]), frameon = True, fontsize=14, prop=font)
+plt.title('CIFAR-10 Posterize(M9) Advantages Per Label (Attack Accuracy) \n', y=1.01, loc='center', fontdict = {'fontsize' : 24}, **csfont)
+# plt.savefig("C:/Users/seacl/Desktop/Posterize_AA_advantages.png", dpi=200, bbox_inches = 'tight')
 
 plt.show()
-
