@@ -1,8 +1,15 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as font_manager
+
+# all font
+csfont = {'fontname':'Times New Roman'}
+# legend font
+font = font_manager.FontProperties(family='Times New Roman',
+                                   style='normal', size=14)
 
 # Colors for bar graphs
-color_list = ['#31a354', '#31a354', '#e377c2', 'sandybrown', '#ffed6f', '#9edae5', '#f7b6d2', 'sandybrown', '#74c476', '#a1d99b']
+color_list = ['#31a354', '#31a354', '#31a354', '#31a354', '#31a354', '#31a354', '#31a354', '#31a354', '#31a354', '#31a354']
 augmentations = ["Solarize (M7)", "Solarize (M7)", "Contrast (M7)", "Posterize (M9)", 
                  "Brightness (M9)", "Equalize (M7)", "Contrast (M6)", "Posterize (M9)",
                  "Solarize (M6)", "Solarize (M7)"]
@@ -33,37 +40,37 @@ ax.spines['left'].set_visible(False)
 ax.spines['top'].set_visible(False)
 ax.spines['bottom'].set_visible(False)
 
-ax.text(-0.52, 65, 'Solarize (M7)', fontsize=12, c='k')
-ax.text(-0.3, 59, '+16.07', fontsize=12, c='k')
+ax.text(-0.45, 65, 'Solarize (M7)', fontsize=12, c='k', **csfont)
+ax.text(-0.23, 59, '+16.07', fontsize=12, c='k', **csfont)
 
-ax.text(0.45, 88, 'Solarize (M7)', fontsize=12, c='k')
-ax.text(0.67, 82, '+16.93', fontsize=12, c='k')
+ax.text(0.5, 88, 'Solarize (M7)', fontsize=12, c='k', **csfont)
+ax.text(0.75, 82, '+16.93', fontsize=12, c='k', **csfont)
 
-ax.text(1.45, 63, 'Contrast (M7)', fontsize=12, c='k')
-ax.text(1.69, 57, '+22.37', fontsize=12, c='k')
+ax.text(1.52, 63, 'Contrast (M7)', fontsize=12, c='k', **csfont)
+ax.text(1.75, 57, '+22.37', fontsize=12, c='k', **csfont)
 
-ax.text(2.4, 51, 'Posterize (M9)', fontsize=12, c='k')
-ax.text(2.74, 45, '+4.76', fontsize=12, c='k')
+ax.text(2.52, 51, 'Posterize (M9)', fontsize=12, c='k', **csfont)
+ax.text(2.8, 45, '+4.76', fontsize=12, c='k', **csfont)
 
-ax.text(3.35, 60, 'Brightness (M9)', fontsize=12, c='k')
-ax.text(3.66, 54, '+15.63', fontsize=12, c='k')
+ax.text(3.44, 60, 'Brightness (M9)', fontsize=12, c='k', **csfont)
+ax.text(3.75, 54, '+15.63', fontsize=12, c='k', **csfont)
 
-ax.text(4.4, 77, 'Equalize (M7)', fontsize=12, c='k')
-ax.text(4.67, 71, '+22.21', fontsize=12, c='k')
+ax.text(4.5, 77, 'Equalize (M7)', fontsize=12, c='k', **csfont)
+ax.text(4.75, 71, '+22.21', fontsize=12, c='k', **csfont)
 
-ax.text(5.4, 85, 'Contrast (M6)', fontsize=12, c='k')
-ax.text(5.73, 79, '+7.49', fontsize=12, c='k')
+ax.text(5.55, 85, 'Contrast (M6)', fontsize=12, c='k', **csfont)
+ax.text(5.8, 79, '+7.49', fontsize=12, c='k', **csfont)
 
-ax.text(6.4, 66, 'Posterize (M9)', fontsize=12, c='k')
-ax.text(6.65, 60, '+11.48', fontsize=12, c='k')
+ax.text(6.5, 66, 'Posterize (M9)', fontsize=12, c='k', **csfont)
+ax.text(6.75, 60, '+11.48', fontsize=12, c='k', **csfont)
 
-ax.text(7.45, 58, 'Solarize (M6)', fontsize=12, c='k')
-ax.text(7.71, 52, '+2.01', fontsize=12, c='k')
+ax.text(7.5, 58, 'Solarize (M6)', fontsize=12, c='k', **csfont)
+ax.text(7.8, 52, '+2.01', fontsize=12, c='k', **csfont)
 
-ax.text(8.4, -94, 'Solarize (M7)', fontsize=12, c='k')
-ax.text(8.73, -88, '-18.54', fontsize=12, c='k')
+ax.text(8.52, -94, 'Solarize (M7)', fontsize=12, c='k', **csfont)
+ax.text(8.8, -88, '-18.54', fontsize=12, c='k', **csfont)
 
-ax.text(1.9, -60, 'Higher MA: Better Utility', fontsize=12, c='k', size='xx-large', bbox=dict(facecolor='none', edgecolor='black', boxstyle='round,pad=0.5'))
+ax.text(1.9, -60, 'Higher MA: Better Utility', fontsize=12, c='k', size='xx-large', bbox=dict(facecolor='none', edgecolor='black', boxstyle='round,pad=0.5'), **csfont)
 
 
 #grid
@@ -72,13 +79,13 @@ ax.set_axisbelow(False)
 
 # x ticks
 xticks_labels = labels
-plt.xticks(df_MA.index , labels = xticks_labels, fontsize=13)
+plt.xticks(df_MA.index , labels = xticks_labels, fontsize=16, **csfont)
 
-# title and legend
-legend_label = ['Advantages', 'Aug_MA_values (colors)', 'DP_MA_values']
-plt.legend(legend_label, ncol = 3, bbox_to_anchor=([0.66, 1.06, 0, 0]), frameon = True, fontsize=10)
-plt.title('CIFAR-10 Best Augmentation/Advantages Per Label (Model Accuracy) \n', loc='center', fontdict = {'fontsize' : 20})
-# plt.savefig("C:/Users/seacl/Desktop/CIFAR10_MA_advantages.png", dpi=300, bbox_inches = 'tight')
+# # title and legend
+legend_label = ['Augmentation Advantage Scores', 'DP-SGD Advantage Scores']
+plt.legend(legend_label, ncol = 3, bbox_to_anchor=([0.78, 1.08, 0, 0]), frameon = True, fontsize=14, prop=font)
+plt.title('CIFAR-10 Best Augmentation/Advantages Per Label (Model Accuracy) \n', y=1.01, loc='center', fontdict = {'fontsize' : 24}, **csfont)
+# plt.savefig("C:/Users/seacl/Desktop/CIFAR10_MA_advantages.png", dpi=200, bbox_inches = 'tight')
 
 
 
@@ -112,37 +119,37 @@ ax.spines['left'].set_visible(False)
 ax.spines['top'].set_visible(False)
 ax.spines['bottom'].set_visible(False)
 
-ax.text(-0.5, 30, 'Solarize (M7)', fontsize=12, c='k')
-ax.text(-0.3, 25, '+11.67', fontsize=12, c='k')
+ax.text(-0.45, 30, 'Solarize (M7)', fontsize=12, c='k', **csfont)
+ax.text(-0.25, 25, '+11.67', fontsize=12, c='k', **csfont)
 
-ax.text(0.45, 23, 'Solarize (M7)', fontsize=12, c='k')
-ax.text(0.67, 18, '+40.26', fontsize=12, c='k')
+ax.text(0.55, 23, 'Solarize (M7)', fontsize=12, c='k', **csfont)
+ax.text(0.75, 18, '+40.26', fontsize=12, c='k', **csfont)
 
-ax.text(1.45, -39, 'Contrast (M7)', fontsize=12, c='k')
-ax.text(1.85, -34, '-1.2', fontsize=12, c='k')
+ax.text(1.52, -38, 'Contrast (M7)', fontsize=12, c='k', **csfont)
+ax.text(1.85, -34, '-1.2', fontsize=12, c='k', **csfont)
 
-ax.text(2.4, 30, 'Posterize (M9)', fontsize=12, c='k')
-ax.text(2.75, 25, '+10.8', fontsize=12, c='k')
+ax.text(2.48, 30, 'Posterize (M9)', fontsize=12, c='k', **csfont)
+ax.text(2.78, 25, '+10.8', fontsize=12, c='k', **csfont)
 
-ax.text(3.35, -43, 'Brightness (M9)', fontsize=12, c='k')
-ax.text(3.76, -38, '-3.26', fontsize=12, c='k')
+ax.text(3.45, -42, 'Brightness (M9)', fontsize=12, c='k', **csfont)
+ax.text(3.8, -38, '-3.26', fontsize=12, c='k', **csfont)
 
-ax.text(4.4, 50, 'Equalize (M7)', fontsize=12, c='k')
-ax.text(4.73, 44, '+0.27', fontsize=12, c='k')
+ax.text(4.48, 49, 'Equalize (M7)', fontsize=12, c='k', **csfont)
+ax.text(4.78, 44, '+0.27', fontsize=12, c='k', **csfont)
 
-ax.text(5.4, 65, 'Contrast (M6)', fontsize=12, c='k')
-ax.text(5.69, 59, '+11.27', fontsize=12, c='k')
+ax.text(5.5, 65, 'Contrast (M6)', fontsize=12, c='k', **csfont)
+ax.text(5.75, 59, '+11.27', fontsize=12, c='k', **csfont)
 
-ax.text(6.4, 22, 'Posterize (M9)', fontsize=12, c='k')
-ax.text(6.74, 16, '+24.2', fontsize=12, c='k')
+ax.text(6.5, 22, 'Posterize (M9)', fontsize=12, c='k', **csfont)
+ax.text(6.8, 16, '+24.2', fontsize=12, c='k', **csfont)
 
-ax.text(7.45, 30, 'Solarize (M6)', fontsize=12, c='k')
-ax.text(7.67, 25, '+18.13', fontsize=12, c='k')
+ax.text(7.52, 30, 'Solarize (M6)', fontsize=12, c='k', **csfont)
+ax.text(7.75, 25, '+18.13', fontsize=12, c='k', **csfont)
 
-ax.text(8.4, 21, 'Solarize (M7)', fontsize=12, c='k')
-ax.text(8.7, 15, '+59.33', fontsize=12, c='k')
+ax.text(8.52, 21, 'Solarize (M7)', fontsize=12, c='k', **csfont)
+ax.text(8.76, 15, '+59.33', fontsize=12, c='k', **csfont)
 
-ax.text(1.9, -60, 'Lower AA: Better Privacy', fontsize=12, c='k', size='xx-large', bbox=dict(facecolor='none', edgecolor='black', boxstyle='round,pad=0.5'))
+ax.text(1.9, -60, 'Lower AA: Better Privacy', fontsize=12, c='k', size='xx-large', bbox=dict(facecolor='none', edgecolor='black', boxstyle='round,pad=0.5'), **csfont)
 
 #grid
 ax.set_axisbelow(False)
@@ -150,14 +157,13 @@ ax.set_axisbelow(False)
 
 # x ticks
 xticks_labels = labels
-plt.xticks(df_AA.index , labels = xticks_labels, fontsize=13)
+plt.xticks(df_AA.index , labels = xticks_labels, fontsize=16, **csfont)
 
 # title and legend
-legend_label = ['Advantages', 'Aug_AA_values (colors)', 'DP_AA_values']
-plt.legend(legend_label, ncol = 3, bbox_to_anchor=([0.66, 1.06, 0, 0]), frameon = True, fontsize=10)
-plt.title('CIFAR-10 Best Augmentation/Advantages Per Label (Attack Accuracy) \n', loc='center', fontdict = {'fontsize' : 20})
-# plt.savefig("C:/Users/seacl/Desktop/CIFAR10_AA_advantages.png", dpi=300, bbox_inches = 'tight')
+legend_label = ['Augmentation Advantage Scores', 'DP-SGD Advantage Scores']
+plt.legend(legend_label, ncol = 3, bbox_to_anchor=([0.78, 1.08, 0, 0]), frameon = True, fontsize=14, prop=font)
+plt.title('CIFAR-10 Best Augmentation/Advantages Per Label (Attack Accuracy) \n', y=1.01, loc='center', fontdict = {'fontsize' : 24}, **csfont)
+# plt.savefig("C:/Users/seacl/Desktop/CIFAR10_AA_advantages.png", dpi=200, bbox_inches = 'tight')
 
 
 plt.show()
-
