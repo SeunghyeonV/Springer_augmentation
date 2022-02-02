@@ -1,6 +1,13 @@
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as font_manager
+
+# all font
+csfont = {'fontname':'Times New Roman'}
+# legend font
+font = font_manager.FontProperties(family='Times New Roman',
+                                   style='normal', size=10)
 
 labels = ["Airplane", "Automobile", "Bird", "Cat", "Deer", "Dog", "Frog",
           "Horse", "Ship", "Truck"]
@@ -38,8 +45,8 @@ im = ax.imshow(advantage_scores)
 ax.set_xticks(np.arange(len(augmnetations)))
 ax.set_yticks(np.arange(len(labels)))
 # labeling respective list entries
-ax.set_xticklabels(augmnetations, fontsize=20)
-ax.set_yticklabels(labels, fontsize=20)
+ax.set_xticklabels(augmnetations, fontsize=20, **csfont)
+ax.set_yticklabels(labels, fontsize=20, **csfont)
 
 # Rotate the tick labels and set their alignment.
 plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
@@ -61,10 +68,10 @@ for i in range(len(augmnetations)):
 # Calculate (height_of_image / width_of_image)
 # im_ratio = im.shape[0]/im.shape[1]
 
-ax.set_title("CIFAR-10 Advantage Scores", fontsize=28, y=1.02)
+ax.set_title("CIFAR-10 Advantage Scores", fontsize=28, y=1.02, **csfont)
 fig.tight_layout()
 cbar = plt.colorbar(im, orientation='vertical', fraction=0.045)
-cbar.set_label('Advantage Scores', size=20)
+# cbar.set_label('Advantage Scores', size=25, **csfont)
 
-# plt.savefig("C:/Users/seacl/Desktop/CIFAR10_Advantage_score_maxtrix.png", dpi=300, bbox_inches = 'tight')
+# plt.savefig("C:/Users/seacl/Desktop/CIFAR10_matrix.png", dpi=200, bbox_inches = 'tight')
 plt.show()
